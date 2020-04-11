@@ -37,9 +37,11 @@ class Speedtest():
         args = ['speedtest', '--accept-license',
                 '--accept-gdpr', '--format', 'json']
         if self._server_id:
-            args.append('--server-id', self._server_id)
+            args.append('--server-id')
+            args.append(self._server_id)
         if self._source_address:
-            args.append('--ip', self._source_address)
+            args.append('--ip')
+            args.append(self._source_address)
 
         cli_result = subprocess.run(args, stdout=subprocess.PIPE, check=True)
         result = json.loads(cli_result.stdout)
