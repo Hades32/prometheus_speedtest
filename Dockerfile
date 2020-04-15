@@ -1,7 +1,7 @@
 FROM python:3.7-alpine
 
 RUN cd /tmp \
-    export arch=$(uname -m | sed 's/.*7.*/armhf/') \
+    && export arch=$(uname -m | sed 's/.*7.*/armhf/') \
     && wget https://bintray.com/ookla/download/download_file?file_path=ookla-speedtest-1.0.0-${ARCH}-linux.tgz -O speedtest.tar.gz \
     && tar xvf speedtest.tar.gz \
     && mv speedtest /usr/bin/ \
